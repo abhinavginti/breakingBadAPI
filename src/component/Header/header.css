@@ -1,0 +1,51 @@
+nav {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+nav #icon img {
+    display: block;
+    height: 8rem;
+    margin: auto;
+}
+
+nav #search {
+    width: 95%;
+}
+
+nav #search form{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+nav #search input {
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    /* outline: none; */
+    border-radius: 20px;
+    width: 100%;
+}
+
+nav #search .btn svg{
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+@media (min-width: 576px) {
+    nav {
+        justify-content: space-between;
+    }
+
+    nav #search{
+        width: auto;
+    }
+
+    nav #search input {
+        min-width: 15vw;
+    }
+}
