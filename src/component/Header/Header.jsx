@@ -1,14 +1,16 @@
 import './header.css'
 import BrBaIcon from '../../Images/BrBaIcon.png'
 import { BsSearch } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { ContentContext } from '../../utils/ContextAPI/ContentContext'
 const Header = () => {
   const { setOffset, getCharacters,setCharacters } = useContext(ContentContext)
+  const navigate = useNavigate()
 
   const handleSubmit = async e => {
     e.preventDefault();
+    navigate('/')
     setOffset(0);
     setCharacters([])
     const fd = new FormData(e.target)
@@ -26,6 +28,7 @@ const Header = () => {
   }
 
   const updateDebounceText = debounce(async (_search) => {
+    navigate('/')
     setOffset(0);
     setCharacters([])
     await getCharacters(_search)
