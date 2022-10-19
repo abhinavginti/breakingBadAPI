@@ -6,25 +6,64 @@
 
 .__home-container .card {
     margin: 3%;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+    width: 260px;
+}
+
+.__home-container .card .content .__hidden-content>div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+}
+
+.__home-container .card .content .__hidden-content>div p:first-child {
+    font-weight: bold;
+    margin-right: 2px;
+}
+
+.__home-container .card .content .__hidden-content>div p:nth-child(2) {
+    text-align: end;
+}
+
+.__home-container .card .__hidden-content {
+    margin-top: 0.75rem;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.25s ease-in-out;
+}
+
+.__home-container .card:hover .__hidden-content {
+    height: 200px;
 }
 
 .__home-container .card img {
     height: 350px;
-    width: 260px;
+    width: 100%;
     object-fit: cover;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out;
 }
 
-.__home-container .card .content{
+.__home-container .card:hover img{
+    opacity: 0.8;
+}
+
+.__home-container .card .content {
     background-color: #393E46;
     margin-left: -20px;
     position: relative;
+    margin-top: 0;
+    transition: margin-top 0.25s ease-in-out;
 }
 
-.__home-container .card .content::before{
+.__home-container .card:hover .content{
+    margin-top: -200px;
+}
+
+.__home-container .card .content::before {
     content: "";
     position: absolute;
     top: 0;
@@ -38,10 +77,10 @@
     margin-top: -20px;
 }
 
-.__home-container .card .content .nickname{
+.__home-container .card .content .nickname {
     display: flex;
     gap: 0.75rem;
     align-items: center;
+    padding: 0.5rem 0;
     justify-content: center;
-    padding: 1rem;
 }
