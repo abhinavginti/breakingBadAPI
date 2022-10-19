@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "./static/css/main.d2a7821c.css",
-    "main.js": "./static/js/main.0b61177a.js",
-    "static/js/787.ae028b44.chunk.js": "./static/js/787.ae028b44.chunk.js",
-    "static/media/BrBaIcon.png": "./static/media/BrBaIcon.2290adae60df12dd98a9.png",
-    "index.html": "./index.html",
-    "main.d2a7821c.css.map": "./static/css/main.d2a7821c.css.map",
-    "main.0b61177a.js.map": "./static/js/main.0b61177a.js.map",
-    "787.ae028b44.chunk.js.map": "./static/js/787.ae028b44.chunk.js.map"
+    "main.css": "/breakingBadAPI/static/css/main.d2a7821c.css",
+    "main.js": "/breakingBadAPI/static/js/main.21b9b0ab.js",
+    "static/js/787.ae028b44.chunk.js": "/breakingBadAPI/static/js/787.ae028b44.chunk.js",
+    "static/media/BrBaIcon.png": "/breakingBadAPI/static/media/BrBaIcon.2290adae60df12dd98a9.png",
+    "index.html": "/breakingBadAPI/index.html",
+    "main.d2a7821c.css.map": "/breakingBadAPI/static/css/main.d2a7821c.css.map",
+    "main.21b9b0ab.js.map": "/breakingBadAPI/static/js/main.21b9b0ab.js.map",
+    "787.ae028b44.chunk.js.map": "/breakingBadAPI/static/js/787.ae028b44.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d2a7821c.css",
-    "static/js/main.0b61177a.js"
+    "static/js/main.21b9b0ab.js"
   ]
 }
