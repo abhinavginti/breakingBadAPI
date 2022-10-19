@@ -15,12 +15,12 @@ const Home = () => {
         window.addEventListener('scroll', handleScroll)
 
         return () => {
-            window.removeEventListener('scroll',handleScroll)
+            window.removeEventListener('scroll', handleScroll)
         }
     }, [])
 
     return (
-        <div className='__home-container'>      
+        <div className='__home-container'>
             {characters && characters.map((character, idx) => <CharacterCard key={character.name + idx} character={character} />)}
         </div>
     )

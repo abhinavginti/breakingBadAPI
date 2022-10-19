@@ -19,7 +19,7 @@ const Character = () => {
         }
         getCharacterData()
     }, [char_id])
-    return character && (
+    return character ? (
         <div className="__character-container">
             <div className="__character-info">
                 <div>
@@ -61,7 +61,7 @@ const Character = () => {
                 </div>
             </div> : ''}
         </div>
-    )
+    ) : <div id='preloader'/>
 }
 
 export default Character
