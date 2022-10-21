@@ -6,15 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import './index.css'
 
 import { ContentProvider } from './utils/ContextAPI/ContentContext'
-import { BrowserRouter,HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <HashRouter>
-      <ContentProvider>
-        <App />
-      </ContentProvider>
-    </HashRouter>
+  <BrowserRouter>
+    <ContentProvider>
+      <App />
+    </ContentProvider>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
