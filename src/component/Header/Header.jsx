@@ -32,7 +32,7 @@ const Header = () => {
     setOffset(0);
     setCharacters([])
     await getCharacters(_search)
-  },1000)
+  },2000)
 
   return (
     <nav>

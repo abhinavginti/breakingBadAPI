@@ -23,7 +23,7 @@ const Character = () => {
         <div className="__character-container">
             <div className="__character-info">
                 <div>
-                    <img className="character_img" src={character.img} />
+                    <img className="character_img" src={character.img} onError={e => e.target.style.display = 'none'} />
                 </div>
                 <div className="__content">
                     <h1>{character.name}</h1>
