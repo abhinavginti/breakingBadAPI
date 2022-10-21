@@ -34,6 +34,14 @@ const Header = () => {
   //   await getCharacters(_search)
   // },2000)
 
+  const handleSearch = (e) => {
+    if(e === ''){
+      offset.current = 0
+      setCharacters([])
+      getCharacters()
+    }
+  }
+
   return (
     <nav>
       <div id='icon'>
@@ -43,7 +51,7 @@ const Header = () => {
       </div>
       <div id='search'>
         <form onSubmit={e => handleSubmit(e)}>
-          <input type='text' placeholder='Walter White' name='search'/>
+          <input onInput={e => handleSearch(e.target.value)} type='text' placeholder='Walter White' name='search'/>
           <button className='btn' type='submit'><BsSearch /></button>
         </form>
       </div>
