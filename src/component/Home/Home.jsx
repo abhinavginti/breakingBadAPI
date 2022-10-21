@@ -4,12 +4,14 @@ import { ContentContext } from '../../utils/ContextAPI/ContentContext'
 import CharacterCard from './CharacterCard';
 
 const Home = () => {
-    const { characters, setOffset, loading } = useContext(ContentContext);
+    const { characters, offset, loading, getCharacters } = useContext(ContentContext);
 
     useEffect(() => {
         const handleScroll = () => {
             if ((window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight)) {
-                !loading && setOffset(prev => prev + 12)
+                if (loading) return;
+                offset.current += 12;
+                getCharacters()
             }
         }
         window.addEventListener('scroll', handleScroll)

@@ -6,8 +6,10 @@ export const ContentContext = createContext()
 
 export const ContentProvider = ({ children }) => {
     const [characters, setCharacters] = useState([])
-    const [offset, setOffset] = useState(0)
+    // const [offset, setOffset] = useState(0)
     const [loading, setLoading] = useState(false)
+    const [currentCharacter, setCurrentCharacter] = useState()
+    const offset = useRef(0)
 
     const hasMore = useRef(true)
 
@@ -16,7 +18,7 @@ export const ContentProvider = ({ children }) => {
         const response = await axios.get(BREAKING_BAD_BASE_URL + `/characters`, {
             params: {
                 limit: 12,
-                offset: offset,
+                offset: offset.current,
                 name: _name
             }
         })
@@ -49,10 +51,10 @@ export const ContentProvider = ({ children }) => {
     useEffect(() => {
         if (!hasMore.current || loading) return;
         getCharacters()
-    }, [offset])
+    }, [])
 
-    return <ContentContext.Provider value={{ characters, setOffset, loading, getCharacter, getQuotes, getCharacters, setCharacters }}>
+    return <ContentContext.Provider value={{ characters, offset, loading, getCharacter, getQuotes, getCharacters, setCharacters, currentCharacter, setCurrentCharacter }}>
         {children}
-        <div id='preloader-v2' className={loading && 'opacity-1'}/>
+        <div id='preloader-v2' className={loading && 'opacity-1'} />
     </ContentContext.Provider>
 }

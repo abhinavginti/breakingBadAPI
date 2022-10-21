@@ -6,20 +6,21 @@ import './character.css'
 
 const Character = () => {
     const { char_id } = useParams()
-    const { getCharacter, getQuotes } = useContext(ContentContext)
-    const [character, setCharacter] = useState()
+    const { getCharacter, getQuotes, currentCharacter: character, setCurrentCharacter } = useContext(ContentContext)
+    const [loading,setLoading] = useState(true)
     useEffect(() => {
         const getCharacterData = async () => {
             const characterData = await getCharacter(char_id);
-            setCharacter(characterData)
+            setCurrentCharacter(characterData)
             if (characterData.char_id) {
                 const characterQuotes = await getQuotes(characterData.name)
-                setCharacter(prev => ({...prev, quotes: characterQuotes}))
+                setCurrentCharacter(prev => ({ ...prev, quotes: characterQuotes }))
             }
+            setLoading(false)
         }
         getCharacterData()
     }, [char_id])
-    return character ? (
+    return character && !loading ? (
         <div className="__character-container">
             <div className="__character-info">
                 <div>
@@ -57,11 +58,11 @@ const Character = () => {
             {character.quotes && character.quotes.length ? <div className="__character-quotes">
                 <p className="heading">{character.nickname}'s Quotes</p>
                 <div className="__quotes">
-                    {character.quotes && character.quotes.map((quote,idx) => <p>" {quote.quote} "</p>)}
+                    {character.quotes && character.quotes.map((quote, idx) => <p key={quote + idx}>" {quote.quote} "</p>)}
                 </div>
             </div> : ''}
         </div>
-    ) : <div id='preloader'/>
+    ) : <div id='preloader' />
 }
 
 export default Character
