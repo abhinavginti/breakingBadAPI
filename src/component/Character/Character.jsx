@@ -1,5 +1,6 @@
 import { useParams } from "react-router"
 import { useContext, useEffect, useState } from "react"
+import { logEvent, analytics } from '../../firebaseConfig';
 import { ContentContext } from "../../utils/ContextAPI/ContentContext"
 
 import './character.css'
@@ -19,6 +20,11 @@ const Character = () => {
             setLoading(false)
         }
         getCharacterData()
+        try {
+            logEvent(analytics, 'character_visit', {
+                id: char_id
+            })
+        } catch (err) { console.error(err) }
     }, [char_id])
     return character && !loading ? (
         <div className="__character-container">
